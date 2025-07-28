@@ -106,6 +106,7 @@ import {
   PermantauanBerkala,
   Tindakan,
   EdukasiGizi,
+  ArtikelDetail,
 } from '../pages';
 import {colors} from '../utils';
 import {Icon} from 'react-native-elements';
@@ -146,6 +147,13 @@ export default function Router() {
         }}
       />
 
+  <Stack.Screen
+        name="ArtikelDetail"
+        component={ArtikelDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
 
       <Stack.Screen
         name="GrafikPertumbuhan"

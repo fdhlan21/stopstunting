@@ -51,6 +51,7 @@ import GrafikPertumbuhan from './GrafikPertumuhan/inde';
 import PermantauanBerkala from './PemantuanBerkala';
 import Tindakan from './Tindakan';
 import EdukasiGizi from './edukasi';
+import ArtikelDetail from './edukasi/detail';
 
 // NEW
 
@@ -108,7 +109,7 @@ GrafikPertumbuhan,
 PermantauanBerkala,
 EdukasiGizi,
 Tindakan,
-
+ArtikelDetail,
 
 
 };
