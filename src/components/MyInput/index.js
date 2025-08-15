@@ -40,7 +40,7 @@ export default function MyInput({
             fontFamily: fonts.secondary[600],
             fontSize: 14,
             color: colorlabel,
-            marginBottom: 4,
+            marginBottom: 10,
             marginLeft: 2,
           }}>
           {label}

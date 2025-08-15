@@ -12,6 +12,7 @@ import {apiURL, storeData} from '../../utils/localStorage';
 import MyLoading from '../../components/MyLoading';
 import {TouchableOpacity} from 'react-native';
 import { Image } from 'react-native';
+
 export default function Login({navigation, route}) {
   const [kirim, setKirim] = useState({
     nama_lengkap: '',
@@ -90,7 +91,7 @@ export default function Login({navigation, route}) {
         <MyInput
           value={kirim.nama_lengkap}
           onChangeText={x => updateKirim('nama_lengkap', x)}
-          label="Nama Lengkap"
+          label="Nama Lengkap (Full Name)"
           placeholder="Masukan Nama Lengkap"
           iconname="person-outline"
         />
@@ -98,13 +99,13 @@ export default function Login({navigation, route}) {
           <MyInput
           value={kirim.ttl}
           onChangeText={x => updateKirim('ttl', x)}
-          label="Tempat Tanggal Lahir"
+          label="Tempat Tanggal Lahir (Place & Date of Birth)"
           placeholder="Masukan Tempat Tanggal Lahir"
           iconname="calendar-outline"
         />
 
        <MyPicker 
-      label="Jenis Kelamin"
+      label="Jenis Kelamin (Gender)"
       iconname='male-female-outline'
       data={[
         {'label' : 'Laki-laki', 'value' : 'laki-laki'},
@@ -118,8 +119,8 @@ export default function Login({navigation, route}) {
          <MyInput
           value={kirim.riwayat_kesehatan}
           onChangeText={x => updateKirim('riwayat_kesehatan', x)}
-          label="Riwayat Kesehatan"
-          placeholder="Masukan Jenis Kelamin"
+          label="Riwayat Kesehatan (Medical History)"
+          placeholder="Masukan Riwayat Kesehatan"
           iconname="heart-outline"
          
         />

@@ -24,7 +24,7 @@ export default function Home({navigation}) {
         end={{x: 1, y: 0}}>
         <View style={styles.header}>
           <View>
-            <Text style={styles.greetingText}>Selamat datang,</Text>
+            <Text style={styles.greetingText}>Selamat datang,{'\n'}Welcome,</Text>
             <Text style={styles.greetingText}>{user.nama_lengkap || 'User'}</Text>
           </View>
           <FastImage
@@ -71,7 +71,7 @@ export default function Home({navigation}) {
               fontSize:14,
               top:3
 
-            }}>Input BMI</Text>
+            }}>Input BMI{'\n'}(BMI Input)</Text>
             </View>
           </TouchableNativeFeedback>
 
@@ -94,9 +94,9 @@ export default function Home({navigation}) {
               fontFamily:fonts.primary[600],
               textAlign:'center',
               color:colors.white,
-              fontSize:14,
+              fontSize:12,
               top:5
-            }}>Grafik Pertumbuhan</Text>
+            }}>Grafik Pertumbuhan{'\n'}(Growth Chart)</Text>
             </View>
           </TouchableNativeFeedback>
 
@@ -128,8 +128,9 @@ export default function Home({navigation}) {
                fontFamily:fonts.primary[600],
               textAlign:'center',
               color:colors.white,
+              fontSize:12,
             }}>
-              Permantauan Berkala
+              Pemantauan Berkala{'\n'}(Regular Monitoring)
             </Text>
             </View>
           </TouchableNativeFeedback>
@@ -153,14 +154,13 @@ export default function Home({navigation}) {
                fontFamily:fonts.primary[600],
               textAlign:'center',
               color:colors.white,
+              fontSize:14,
               top:1
             }}>
-              Tindakan
+              Tindakan{'\n'}(Action Plan)
             </Text>
             </View>
           </TouchableNativeFeedback>
-
-
 
         </View>
 
@@ -192,14 +192,12 @@ export default function Home({navigation}) {
                fontFamily:fonts.primary[600],
               textAlign:'center',
               color:colors.white,
+              fontSize:11,
             }}>
-              Edukasi Gizi dan Kesehatan
+              Edukasi Gizi dan Kesehatan{'\n'}(Nutrition & Health Education)
             </Text>
             </View>
           </TouchableNativeFeedback>
-
-           
-
 
         </View>
 

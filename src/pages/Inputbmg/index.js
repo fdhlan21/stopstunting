@@ -41,27 +41,27 @@ export default function InputBMI({navigation}) {
     const kategoriBMI = (bmi) => {
         if (bmi < 18.5) {
             return {
-                kategori: 'Kurus',
+                kategori: 'Kurus (Underweight)',
                 warna: colors.danger || '#e74c3c',
-                keterangan: 'Berat badan Anda kurang dari normal'
+                keterangan: 'Berat badan Anda kurang dari normal\n(Your weight is below normal)'
             };
         } else if (bmi >= 18.5 && bmi <= 24.9) {
             return {
-                kategori: 'Normal',
+                kategori: 'Normal (Normal)',
                 warna: colors.success || '#27ae60',
-                keterangan: 'Berat badan Anda ideal'
+                keterangan: 'Berat badan Anda ideal\n(Your weight is ideal)'
             };
         } else if (bmi >= 25 && bmi <= 29.9) {
             return {
-                kategori: 'Gemuk',
+                kategori: 'Gemuk (Overweight)',
                 warna: colors.warning || '#f39c12',
-                keterangan: 'Berat badan Anda berlebih'
+                keterangan: 'Berat badan Anda berlebih\n(Your weight is above normal)'
             };
         } else {
             return {
-                kategori: 'Obesitas',
+                kategori: 'Obesitas (Obesity)',
                 warna: colors.danger || '#e74c3c',
-                keterangan: 'Berat badan Anda sangat berlebih'
+                keterangan: 'Berat badan Anda sangat berlebih\n(Your weight is significantly above normal)'
             };
         }
     };
@@ -120,13 +120,13 @@ export default function InputBMI({navigation}) {
 
     const sendData = () => {
         if (kirim.berat_badan.length == 0) {
-            toast.show('Berat Badan Masih Kosong !');
+            toast.show('Berat Badan Masih Kosong ! (Weight is still empty!)');
         } else if (kirim.tinggi_badan.length == 0) {
-            toast.show('Tinggi Badan Masih Kosong !');
+            toast.show('Tinggi Badan Masih Kosong ! (Height is still empty!)');
         } else if (parseFloat(kirim.berat_badan) <= 0) {
-            toast.show('Berat badan harus lebih dari 0 !');
+            toast.show('Berat badan harus lebih dari 0 ! (Weight must be greater than 0!)');
         } else if (parseFloat(kirim.tinggi_badan) <= 0) {
-            toast.show('Tinggi badan harus lebih dari 0 !');
+            toast.show('Tinggi badan harus lebih dari 0 ! (Height must be greater than 0!)');
         } else {
             // Mulai loading
             setLoading(true);
@@ -186,7 +186,7 @@ export default function InputBMI({navigation}) {
             flex:1,
             backgroundColor:colors.white
         }}>
-            <MyHeader title="Input BMI"/>
+            <MyHeader title="Input BMI (BMI Input)"/>
 
             <ScrollView>
                 <View style={{
@@ -199,17 +199,17 @@ export default function InputBMI({navigation}) {
                         <MyInput
                             value={kirim.berat_badan}
                             onChangeText={x => updateKirim('berat_badan', x)}
-                            label="Berat Badan (kg)"
+                            label="Berat Badan (Weight) - kg"
                             keyboardType='numeric'
-                            placeholder="Masukan Berat Badan"
+                            placeholder="Masukan berat badan (Enter weight)"
                         />
 
                         <MyInput
                             value={kirim.tinggi_badan}
                             onChangeText={x => updateKirim('tinggi_badan', x)}
-                            label="Tinggi Badan (cm)"
+                            label="Tinggi Badan (Height) - cm"
                             keyboardType='numeric'
-                            placeholder="Masukan Tinggi Badan"
+                            placeholder="Masukan tinggi badan (Enter height)"
                         />
 
                         <TouchableWithoutFeedback onPress={sendData} disabled={loading}>
@@ -224,7 +224,7 @@ export default function InputBMI({navigation}) {
                                     fontFamily:fonts.primary[600],
                                     color:colors.white,
                                     textAlign:'center'
-                                }}>{loading ? 'Menghitung...' : 'Hitung BMI'}</Text>
+                                }}>{loading ? 'Menghitung... (Calculating...)' : 'Hitung BMI (Calculate BMI)'}</Text>
                             </View>
                         </TouchableWithoutFeedback>
 
@@ -250,8 +250,9 @@ export default function InputBMI({navigation}) {
                                     fontFamily: fonts.primary[400],
                                     color: colors.primary,
                                     marginTop: 10,
-                                    fontSize: 14
-                                }}>Sedang menghitung BMI Anda...</Text>
+                                    fontSize: 14,
+                                    textAlign: 'center'
+                                }}>Sedang menghitung BMI Anda...{'\n'}(Calculating your BMI...)</Text>
                             </View>
                         )}
 
@@ -278,7 +279,7 @@ export default function InputBMI({navigation}) {
                                     color: colors.black,
                                     textAlign: 'center',
                                     marginBottom: 10
-                                }}>Hasil BMI Anda</Text>
+                                }}>Hasil BMI Anda{'\n'}(Your BMI Result)</Text>
 
                                 {/* Animated BMI Value */}
                                 <Animated.View style={{
@@ -308,7 +309,8 @@ export default function InputBMI({navigation}) {
                                     <Text style={{
                                         fontFamily: fonts.primary[600],
                                         color: colors.white,
-                                        fontSize: 16
+                                        fontSize: 16,
+                                        textAlign: 'center'
                                     }}>{hasilBMI.kategori}</Text>
                                 </Animated.View>
 
@@ -341,22 +343,22 @@ export default function InputBMI({navigation}) {
                                         color: colors.black,
                                         marginBottom: 10,
                                         textAlign: 'center'
-                                    }}>Kategori BMI</Text>
+                                    }}>Kategori BMI (BMI Categories)</Text>
                                     
                                     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 5}}>
-                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>Kurus</Text>
+                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black, flex: 1}}>Kurus (Underweight)</Text>
                                         <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>{'< 18.5'}</Text>
                                     </View>
                                     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 5}}>
-                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>Normal</Text>
+                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black, flex: 1}}>Normal (Normal)</Text>
                                         <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>18.5 - 24.9</Text>
                                     </View>
                                     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 5}}>
-                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>Gemuk</Text>
+                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black, flex: 1}}>Gemuk (Overweight)</Text>
                                         <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>25.0 - 29.9</Text>
                                     </View>
                                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>Obesitas</Text>
+                                        <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black, flex: 1}}>Obesitas (Obesity)</Text>
                                         <Text style={{fontFamily: fonts.primary[400], fontSize: 12, color: colors.black}}>≥ 30.0</Text>
                                     </View>
                                 </Animated.View>
@@ -378,7 +380,7 @@ export default function InputBMI({navigation}) {
                                                 color: colors.white,
                                                 textAlign: 'center',
                                                 fontSize: 14
-                                            }}>Hitung Lagi</Text>
+                                            }}>Hitung Lagi (Calculate Again)</Text>
                                         </View>
                                     </TouchableWithoutFeedback>
                                 </Animated.View>
